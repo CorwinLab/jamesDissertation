@@ -1,0 +1,152 @@
+% Created by Karol Kozioł (www.karol-koziol.net)
+% Released under GPL licence
+%
+\documentclass[a4paper,11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{polski}
+\usepackage[utf8x]{inputenc}
+\usepackage{microtype}
+
+\usepackage{bm}% bold math
+
+\usepackage{physics} %bra-ket
+
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{color}
+\usepackage{times}
+\usepackage[scaled]{helvet}
+\renewcommand\familydefault{\sfdefault} 
+\usepackage[T1]{fontenc}
+\usepackage[
+pdftitle={Letter},
+colorlinks=true,linkcolor=black,urlcolor=black,citecolor=black]{hyperref}
+\urlstyle{same}
+
+\usepackage{geometry}
+\geometry{left=25mm,right=25mm,%
+bindingoffset=0mm, top=25mm,bottom=25mm}
+
+\linespread{1.3}
+\pagestyle{empty}
+
+
+\begin{document}
+
+
+\vskip 0.5cm
+We thank the referees for carefully reading our manuscript and for their suggestions and feedback. We are particularly pleased that both Referees find this work to be well written and that Referee B finds that “the results are relevant and substantially advance the field of granular matter physics.”
+
+We address the referee’s comments, shown in bold, and indicate changes made to the manuscript with italics. We believe that the referees’ comments have allowed us to improve the clarity and impact of our work with our revisions. We hope that our responses are persuasive and that our revised manuscript is now suitable for publication in PRL.
+
+\section*{Report of Referee A -- LM16696/Sartor}
+
+\textbf{The paper by Sartor and and Corwin is a step forward for definition of entropy in a compressed jammed system. The novelty comes from a definition for the entropy change due to the effect of compression which results to a change in the connectivity of particles. The introduction is well written and provides a nice overview about the subject. This is a nice work for a small community of granular matter and can not be considered for a PRL with a wide audience. }
+\vskip 0.3cm
+
+We thank the referee for their kind words and are gratified that the referee noted that our work was well and clearly presented.  
+
+We disagree, however, with the assertion that this work is not relevant to a larger audience: this work provides a first-principles mechanism to link the entropy of granular materials (a non-equilibrium system) to a microscopic description.  The creation of a statistical mechanics for out of equilibrium system in the absence of temperature is a fundamental advance which should have broad reaching implications across many areas of physics and materials science. Furthermore, this work is broadly relevant due to the near-universal reach of granular materials into all aspects of the modern world.  We acknowledge however, that as the referee suggests, our case has not been made as strongly and clearly as possible. For this reason, we have added the following text to the abstract to reflect this:
+
+\begin{quote}
+\textit{“While themodynamic descriptions of granular materials have been explored, they have not yet been concretely connected to their underlying statistical mechanics.”}
+\end{quote}
+
+In further response to the suggestion that this is not appropriate for PRL, we believe that our work does in fact meet multiple criteria for publication in PRL. This work: 1) Substantially advances the fields of non-equilibrium statistical mechanics, jamming, and granular materials, 2) Opens a significant new area of research through the introduction of new analysis tools and a new framework for considering the enumeration of microscopic states, 3) Solves a critical outstanding problem associated with the thermodynamic angoricity-based approach to granular materials, and 4) is, in our humble opinion, scientifically and aesthetically appealing in its use of geometric arguments to derive entropy from the volume of a constrained region of force configurational space.
+
+\vskip 0.5cm
+\textbf{The references are very messy, please correct them.}
+\vskip 0.3cm
+
+We apologize, this was an inadvertent mistake due to a change in our reference organizing software. The references have now been corrected.
+
+\vskip 0.5cm
+\textbf{The only chance the paper might have for PRL is the derivation of a constant h which authors call it Planck’s constant. Planck constant is a fundamental constant related to how the nature is built. However, Fig.4-b is not conclusive. In fact, that figure should be plotted like h vs 1/N. Then the authors should try to see if they can extrapolate h(1/N = 0) for the thermodynamic limit? Then if the authors can interpret that number, like Planck constant, and provide firm argument that h provides a basis for the understanding of statistical mechanics of granular mater then the paper may become of general interest.}
+\vskip 0.3cm
+
+The referee proposes that the manuscript would be strengthened with a more explicit physical interpretation of the parameter $h_f$. Our results in figure 4b demonstrate that in the thermodynamic limit (1/N -> 0), $h_f$ does not tend to a constant value but rather vanishes. At first blush this seems like a surprising result: there is no fundamental universal scale. However, this model for granular materials is fundamentally classical and in a classical system, absent the scale set by quantum mechanics, the system size is the only meaningful scale. Thus, we expect h to scale with system size as observed. An interesting direction for future research is to consider how the underlying physical systems that we are modeling interact with quantum effects in the limit of extremely large systems. Just as initial formulations of the ideal gas law used the limits of measurement as the fundamental scale, we are using the system size. At some point, for physical packings, this predicted $h_f$ will fall below a fundamental quantum scale. However, we would expect the system sizes needed to hit this point to be unreasonably large and thus not particularly relevant to granular materials.
+
+While $h_f$ is set by the system size and tends towards zero, we have found $\delta z_c$, a more experimentally relevant measure, to be constant (in fixed dimension). We have added language to the paper that makes this more clear as follows in the discussion section (page 4, column 2):
+
+\begin{quote}
+\textit{While $h_f$ is observed to decrease with $N$ and expected to vanish in the thermodynamic limit, we find $\delta z_c$ to be intensive with system size, as shown in figure 4.}
+\end{quote}
+
+and in the conclusions (page 5, column 1):
+\begin{quote}
+\textit{...we discover that, perhaps unsurprisingly, Planck's constant does not set the fundamental scale of discretization $h_f$. In a purely classical model such as this, the discretization can only depend on the finite size effects of the system which are determined by $N$ and $d$. Thus, in the thermodynamic limit, while $h_f$ vanishes, the behavoir of the system is controlled by $\delta z_c$ and thus $P_c$ which do obtain fixed values.}
+\end{quote}
+\vskip 0.5cm
+\textbf{I suggest to submit this paper to PRE.}
+\vskip 0.3cm
+
+We thank the referee for supporting the publication of our manuscript in PRE. We hope the referee now finds our arguments in favor of the broad interest of the paper to be sufficiently convincing for publication in PRL.
+
+\pagebreak
+\section*{Report of Referee B -- LM16696/Sartor}
+
+\textbf{The authors consider the general issue related to the description of the macroscopic properties of dense granular systems via an equilibrium-like thermodynamic approach. In particular, exploiting an accurate numerical measure of force networks, they present an explicit microscopic link between the angoricity (which plays the role of temperature in jammed granular systems) and the multiplicity of the Force Network Ensemble. The paper is well written and quite clear, and the results are relevant and substantially advance the field of granular matter physics. Therefore I suggest publication in PRL.}
+\vskip 0.3cm
+
+We thank the referee for their kind comments in support of our paper. We are pleased to hear that they found the paper to be well written and clear and that they suggest publication in PRL.
+
+\vskip 0.5cm
+\textbf{I have only a few minor comments the authors could consider:}
+
+\textbf{1) The second sentence in the abstract is a strong claim. Actually, a thermodynamic description of granular systems is not always possible. So I would suggest to rewrite the sentence: "However, in many cases,
+..."}
+\vskip 0.3cm
+
+We appreciate the suggestion and have changed the language as suggested.
+
+\vskip 0.5cm
+\textbf{2) In the sixth line of the abstract, referring to Planck's constant is overstated. Actually, it seems to me that the quantity introduced by the authors is not a constant but depends on N and d, as shown in Fig.4. So I would eliminate such an analogy from the abstract.}
+\vskip 0.3cm
+
+We thank the referee for pointing out an impercision in our abstract. As discussed in the above response to referee A, $h_f$ vanishes in the thermodynamic limit as would be expected for any purely classical discretization scale. In our purely classical model the fundamental scale is set by the finite size effects.  Thus, our scale factor is analogous to Planck’s constant in so far as it allows us to discretize space but it is explicitly not a universal constant for all N and d.  We have made this fact more explicit in the abstract:
+
+\begin{quote}
+\textit{To determine this scale factor, we measure angoricity over a wide range of pressures using the method of overlapping histograms and find that in the absence of a fundamental quantum scale it is set solely by the system size and dimensionality.}
+\end{quote}
+
+We also have made this point clearer within the body of the text as follows in the discussion section (page 4, column 2):
+\begin{quote}
+\textit{While $h_f$ is observed to decrease with $N$ and expected to vanish in the thermodynamic limit, we find $\delta z_c$ to be intensive with system size, as shown in figure 4.}
+\end{quote}
+and in the conclusions section (page 5, column 1):
+\begin{quote}
+\textit{...we discover that, perhaps unsurprisingly, Planck's constant does not set the fundamental scale of discretization $h_f$. In a purely classical model such as this, the discretization can only depend on the finite size effects of the system which are determined by $N$ and $d$. Thus, in the thermodynamic limit, while $h_f$ vanishes, the behavoir of the system is controlled by $\delta z_c$ and thus $P_c$ which do obtain fixed values.}
+\end{quote}
+\vskip 0.5cm
+\textbf{3) The authors assume a harmonic interaction potential among particles. To what extent is this relevant for their derivation? For instance, could it be possible to consider a Hertz-Mindlin model?}
+\vskip 0.3cm
+
+For frictionless Hertzian spheres, the derivation would be similar - equation 1 would have to incorporate effective spring constants based on the overlaps in the packing. Equation 7 would change to: 
+\begin{align*}
+\Delta Z = B(d) N P^{2/5}
+\end{align*}
+Additionally, we would potentially expect differences in the behavior of $\gamma$ and $P_c$. 
+
+For frictional Hertz-Mindlin spheres, the forces are history dependent, and a given geometry can generally support many more force configurations. It would require expanding the formalism to allow for this, which could be an interesting future direction. 
+
+\vskip 0.5cm
+\textbf{Typos:}
+
+\textbf{--page 1, column 1, line 4: "is" is missing between "scale" and "irrelevantly"
+--page 4, column 1, line 8: "in in"}
+\vskip 0.3cm
+
+We have corrected these typos.
+
+\vskip 0.3cm
+\textbf{--in all the references the year of publication is missing}
+\vskip 0.3cm
+
+We apologize, this was an inadvertent mistake due to a change in our reference organizing software. The references have now been corrected.
+
+\vskip 2.0cm
+
+
+
+
+\end{document}

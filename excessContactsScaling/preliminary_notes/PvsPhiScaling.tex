@@ -1,0 +1,125 @@
+\documentclass[aps,prl,twocolumn,letter,longbibliography,floatfix]{revtex4-1}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage{physics}
+
+
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{color}
+\usepackage[english]{babel}
+
+
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\of}[1]{\left(#1\right)}
+\newcommand{\pd}{\partial}
+
+\newcommand{\ec}[1]
+{\textcolor{red}{#1}}
+
+\newcommand{\jamesemph}[1]
+{\textcolor{blue}{#1}}
+
+\begin{document}
+
+\title{More detailed notes on the scaling of $P$ with $\Delta \phi$}
+\author{Sean Ridout}
+\date{\today}
+
+\begin{abstract}
+    Here I explain in some detail how in principle the scaling of $P$ vs $\Delta \phi$ is computed for harmonic spheres. I make clear which assumptions we are making, and show how relaxing one of the assumptions allows us to get pretty close to the factor of $0.7$ James told me the prefactor is off by.  
+\end{abstract}
+\maketitle
+
+
+\section{The prefactor is essentially the bulk modulus (for harmonic spheres)}
+
+For harmonic spheres, we have $$P \propto \Delta \phi \propto \Delta V,$$, since for small $\Delta \phi$ the change in density is essentially minus the change in volume.
+
+This means that the prefactor seems essentially to be equal to the bulk modulus (sometimes called $K$):
+
+\begin{equation}
+    B \equiv - V \pdv{P}{V}.
+\end{equation}
+
+So the question we have is basically how to calculate the bulk modulus in the limit of small $\Delta Z, P$, 
+
+\section{Our assumptions}
+
+\subsection{Smooth $P$ vs $\Delta \phi$ for individual packings} The first assumption is the one which is hardest to avoid theoretically. We assume that the slope of $P$ vs. $V$ is actually equal to $\pdv{P}{V}$. This seems like an obvious statement, but in fact it isn't necessarily true because although $P$ vs $V$ looks smooth when we average over many configurations, that doesn't rule out the presence of small discontinuities for an individual packing.
+
+For instance, it is known that when we shear, and try to measure $G = \pdv{\sigma}{\gamma}$, there are small discontinuities for an individual packing, which result in an average slope of $\sigma$ vs $\gamma$ that is smaller than the average of $\pdv{\sigma}{\gamma}$! (I will add a citation for this soon, but it's some paper by Corey O'Hern and a student of his.)
+
+Now, the fact that you can do this scaling of $E$ toward $\phi_J$ for an individual packing suggests that these discontinuities are not present as you unjam. I think Carl had them, but I guess your protocol is somehow more stable than his. So it seems this assumption is safe.
+
+\subsection{The effect of prestresses is ignored}
+
+To compute the linear response of the system we imagine replacing each contact with a linear spring. Technically, these springs are not at their rest lengths, since the packing is under pressure and each spring bears a compressional force at equillibrium. This effect produces lower elastic moduli than taking the same network but with unstretched springs, but it is hard to precisely compute the effect of this analytically except for a crystal.
+
+Since the bulk modulus remains finite as $P \to 0$ but the effect of this pre-stress goes to zero as $P \to 0$, we assume that we can just compute the limiting value of the bulk modulus by taking $P \approx 0$ so the spring representing the contact may all be approximated as unstretched. This approximation, unlike the one above, is theoretically well controlled, and will not cause any problem for the asymptotic prefactor at low $P$.
+
+With the pre-stress ignored, the bulk modulus may now be written in terms of the states of self-stress of the packing. I will explain this in more detail in a second but let's review the last possible assumptions we can make.
+
+\subsection{Only one state of self stress contributes to the bulk modulus}
+
+This is not strictly true, but a single state of self stress is by far the dominant contribution to the bulk modulus at low $\delta Z$. This is known from the fact that a clear plateau is observed in the bulk modulus at low $\delta Z$.
+
+\subsection{The distribution of forces is exponential}
+
+With this assumption and the above one, we will be able to derive the factor of $0.7$.
+
+\subsection{The response is affine}
+This assumption gives the original derivation, with an answer which is wrong by a factor of $0.7$ I will explain what it means below.
+
+\section{Affine vs. Nonaffine response}
+
+Imagine applying some sort of global strain to the system - chaning its volume or shearing it. This strain may be modelled as a linear transformation applied to the vectors describing the simulation cell. For example, if we change the volume of the system, each vector defining an edge of the simulation cell is multiplied by the matrix $T_{ij} = \left(1 + \frac{1}{d}\delta V/V \right) \delta_{ij}$ (to lowest order in $\delta V$), i.e. the box vectors $e_i$ are mapped to $e'_i = \left(1 + \frac{1}{d}\delta V/V \right) e_i$. 
+
+Now, what happens to the vector $r^{\left(ab\right)}_i$ which gives the separation between particles $a$ and $b$? The most naive assumption, which people made when they first started thinking about this kind of thing a hundred years ago, is that they are mapped simply to $r^{\left(ab\right)'}_j = T_{ij} r^{\left(ab\right)}_i$.  (Here summation over repeated indices is implied.) This is called an ``affine'' deformation (in the same sense as ``affine transformation'', a linear transformation  of space which may also involve a translation). So the new state of the system under such a response is just a rescaling (or shearing, for response to shear) of the original packing.
+
+For a Bravais lattice, the affine response represents the true response of the system. For a general system, however, the affine response will induce some set of net forces on the particles, which must be relaxed in order to find the true response. This can be done in linear response by solving a matrix equation involving the dynamical matrix / hessian of the energy. Since this is a relaxation, it always reduces the energy and thus pressure / stress. Thus, the ``affine elastic modulus'' is always an upper bound on the real elastic modulus.
+
+For a netork of unstretched springs (i.e. if we ignore the prestress), we don't need to solve the matrix equation. Instead, it can be shown that the same result can be obtained by projecting the affine change in each springs length onto the states of self stress of the system.  Fpr simplicity I write the formula for all spring constants being equal to $k$. If we call the change in length of spring $\alpha$  under the affine deformation $\delta \ell_\alpha$ and call the states of self stress $s$, then we have
+
+\begin{equation}
+B = \frac{k N_{\mathrm{bonds}}}{2V} \sum_{s} \left| \bra{s}\ket{\delta \ell} \right|^2.
+\end{equation}
+
+\section{The affine calculation}
+
+The affine calculation, subject to the assumption that there are about $2dN$ springs, is precisely the derivation we have been discussing until now.
+
+\section{The nonaffine correction, assuming only one relevant state of self stress}
+
+The ratio of the affine modulus and the true modulus is the projection term $\sum_{s} \left| \bra{s}\ket{\delta \ell_\mathrm{aff}} \right|^2$.
+
+Up to corrections of order $\delta z$, this can be captured with a single state of self stress which causes the system to resist compression at unjamming.
+
+Since we know that the packing is resisting some set of contact forces $\ket{f}$, this relevant state of self stress is precisely $\ket{f}$. In the limit of zero $\delta z$, this is the only state of self stress, by necessity. Of course it changes a bit as you compress because the set of forces between the particles changes.
+
+Since the state of self stress must be normalized, the correction factor is thus
+
+\begin{equation}
+\frac{B}{B_{\mathrm{aff}}} = \frac{\bra{f}\ket{\delta \ell_{\mathrm{aff}}}}{\sqrt{\langle f^2 \rangle} \sqrt{\langle \ell_{\mathrm{aff}}^2 \rangle}}.
+\end{equation}
+
+Now, for a monodisperse system close to jamming, $\delta \ell_\mathrm{aff}$ is the same for every bond, to lowest order in the overlaps between particles. Thus:
+
+\begin{equation}
+    \frac{B}{B_{\mathrm{aff}}} = \frac{\langle f \rangle}{\sqrt{\langle f^2 \rangle} }.
+\end{equation}
+
+Since I imagine the power-law distribution of $f$ for small $f$ has a very small contribution to these expectation values, we focus on the exponential cutoff for large $f$ and say that $P{\left(f\right)} \sim e^{- f / \langle f \rangle}$. Under this assumption, we do the integrals and find that
+\begin{equation}
+    \frac{B}{B_{\mathrm{aff}}} = \frac{1}{\sqrt{2}} . 
+\end{equation}
+
+We are still ignoring the contribution of pre-stress, but we expect this to be higher order in $P$, so it should not affect the prefactor of the linear fit to $\delta \phi$. If it did somehow affect it however, it would lower it.
+
+Similarly, if there are sudden rearrangements causing discontinuities in the pressure, they would lower the prefactor of the average $P$ vs average $\Delta \phi$ curve. 
+
+
+\end{document}

@@ -1,0 +1,343 @@
+\documentclass[aps,prl,twocolumn,letter,longbibliography,floatfix]{revtex4-1}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+
+\usepackage{physics} %bra-ket
+
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{color}
+\usepackage[english]{babel}
+
+
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\of}[1]{\left(#1\right)}
+\newcommand{\pd}{\partial}
+
+\newcommand{\ec}[1]
+{\textcolor{red}{#1}}
+
+\newcommand{\jamesemph}[1]
+{\textcolor{blue}{#1}}
+
+\newcommand{\sean}[1]
+{\textcolor{cyan}{#1}}
+
+\newcommand{\cn}[1]
+{\jamesemph{[Citation Needed!]}}
+
+\begin{document}
+
+\title{Dimensional Dependence of Scaling Prefactors in Jamming}
+\author{James D Sartor, Sean Ridout, Eric I Corwin}
+\affiliation{Department of Physics, University of Oregon, Eugene, Oregon 97403, USA}
+\date{\today}
+
+\begin{abstract}
+
+%Jamming is probably important.
+
+%But, there's a problem: We don't have a first principles understanding of it in physically relevant dimensions.
+
+%But we know something: We do know it from first principles in infinite dimensions, in which we can make all sorts of simplifying approximations.
+
+%It turns out that somehow this exactly works in low dimensions.
+
+%Therefore, we didn't need to make this assumptions, so we should be able to unwind them and come up with a constructive low dimensional theory which will give greater insight.
+
+No known analytic framework precisely explains all the phenomena observed in jamming. The replica theory for glass and jamming is a mean field theory which attempts to do so by working in the limit of infinite dimensions, such that correlations between neighbors are negligible. As such, results from mean field theory are not guaranteed to be observed in finite dimensions. However, many\jamesemph{[?]} results in mean field for jamming have been shown to be exact or nearly exact in low dimensions. This suggests that the infinite dimensional limit is not necessary to obtain these results. In this paper, we perform precision measurements of two jamming scaling relationships from dimensions 2-10 in order to extract the prefactors to these scalings. While these prefactors should be highly sensitive to finite dimensional corrections to the mean field, we find the mean field predictions for these prefactors to be exact in low dimensions. This suggests that the mean field approximation is not necessary for deriving these prefactors, and as such, we present a first principles derivation for one, leaving the other as an open question.
+
+%%%%% PRE - REFRAMING - ABSTRACT
+%For overjammed packings of soft spheres, excess packing fraction ($\Delta\varphi$), pressure ($P$), and number of excess contacts per particle ($\delta z$) all characterize the distance to the jamming transition. These parameters are all linked by a scaling theory that describes power law relations between them in all spatial dimensions, made possible by the universality of granular packings. However, the prefactors to these scalings are not universal and have a nontrivial dependence on dimension. While predictions for these dimensional scalings exist in mean field theory, no low dimensional predictions exist. In this paper, we present a first principles derivation of the relation between $P$ and $\Delta\varphi$ in low dimensions which matches the mean field prediction. We then measure these prefactors in dimensions $d=2-10$, confirming our prediction of $P$ with $\Delta\varphi$ up to 2D, and showing that $\delta Z$ vs $P$ begins to take on mean field scaling around 4D.
+%%%%%
+
+
+\end{abstract}
+
+\maketitle
+
+%\ec{The point: Measurements in low dimensions are unreasonably well predicted by the MF, which means that we must be able to drop the MF assumption in order to achieve them.  We show that you can, for features that are generally useful and important to know empirically.}
+
+%\ec{The argument: Many, perhaps all, results of the mean field have been shown to be exact or nearly exact in low dimensional jamming.  However, low-d jamming explicitly violates the MF assumption.  Therefore the MF assumption must not be needed in order to derive these results.  We demonstrate the correctness of the MF predictions for prefactors, some of the most sensitive predictions, and provide a first-principles PROOF of one of these results free of the MF assumption.  These results call out for proofs for all of the other features, which is a challenge to the community.}
+
+ 
+\textit{Introduction} -- Granular materials exhibit universal properties regardless of the material properties of the individual grains \cite{liu_jamming_2010} \jamesemph{cite more}.  Such properties are empirically found to depend on the distance to the jamming transition, characterized variously by pressure, packing fraction, or number of excess contacts, among others.  Scaling theory summarizes and condenses the power law relationships found between such quantities, but no first principles theory of jammed systems at finite dimensions exists.  The replica mean field theory of glasses and jamming has been shown to be exact in the infinite dimensional limit \cite{parisi_mean-field_2010,parisi_theory_2020}.  To do so it relies on the assumption that there are no correlations between neighbors, fundamentally at odds with low dimensional systems.  Despite the fact that low dimensional systems have highly correlated neighbors the scaling relations are precisely the same as those found in infinite dimensions \cite{everything}.  
+
+Here, we move one step further in the comparison between low dimensional jamming and mean field jamming by probing not only scaling relations but also prefactors between a handful of properties: pressure $P$, excess contacts $\delta z$, and excess packing fraction above jamming $\Delta \varphi$. We demonstrate the continued success of the mean field in describing low dimensional systems. Thus, the mean field approximation is overzealous: one need not have vanishing correlations in order to obtain these results. In this spirit we provide a first principles proof of the relation between pressure and excess packing fraction free of the mean field assumptions.  These results call out for proofs for all of the other universal relations of the jamming transition.
+
+%These soft amorphous packings are often characterized in their distance from jamming in a number of ways, such as 
+
+%The relations between these parameters follow power laws that are unreasonably well predicted by mean field theory.
+ %The universality of granular materials implies relationships between these parameters, which are described by the scaling theory of granular materials \cite{goodrich_scaling_2016,goodrich_finite-size_2012}. However, while scaling theory predicts the power law relationships between these parameters, it does not address the prefactors to these power laws, which exhibit dimensional dependence.
+%Although no first principles theory of jammed systems at finite dimensions exists, mean field theory has been developed to address the infinite dimensional limit \cite{parisi_mean-field_2010,parisi_theory_2020}. At low dimensions, some properties of granular materials take on their mean field behavior, such as force distributions \cite{charbonneau_universal_2012}, vibrational spectra \cite{arceri_vibrational_2019}, and scaling exponents \cite{goodrich_scaling_2016}.
+%However other properties do not, notably the critical jamming density $\varphi_j$ \cite{charbonneau_universal_2012}.
+
+% While the Mean Field Theory predictions for scaling expoenents have been shown to be accurate, the predictions for the prefactors to these scaling relations have not been validated. These predictions should be especially sensitive to dimensional effects. In this paper, we measure these prefactors between pressure, packing fraction, and number of excess contacts and show that they are exact starting in dimensions 2 and 4. This suggests that the mean field approximation is not necessary for these predictions (or in general) (also we show a proof of one of them which is cool)
+ 
+ 
+
+\textit{Background} -- Granular materials undergo a jamming transition at a critical packing fraction $\varphi_j$. In a packing of $N$ particles in $d$ dimensions, the number of force bearing contacts between grains jumps abruptly from zero to $Z_c \approx Nd$, the minimum number sufficient to support global rigidity and thus global pressure~\cite{liu_jamming_2010}. 
+
+
+
+
+
+
+
+
+We limit our study to spherical particles interacting through a harmonic contact potential given by 
+%
+ \begin{equation}
+  U(\mathbf{r}_{ij})=\left(1-\frac{|\mathbf{r}_{ij}|}{\sigma_{ij}}\right)^2 \Theta\left(1-\frac{|\mathbf{r}_{ij}|}{\sigma_{ij}}\right),
+ \end{equation}
+%
+where $r_{ij}$ is the center to center distance between particles $i$ and $j$, $\sigma_{ij}$ is the sum of the radii of particles $i$ and $j$ and $\Theta$ is the Heaviside step function.
+From this potential, the forces between particles can be calculated as the negative gradient of $U(\mathbf{r}_{ij})$:
+%
+\begin{align}
+ \mathbf{f}_{ij} &= \frac{2}{\sigma_{ij}} \left(1-\frac{r_{ij}}{\sigma_{ij}}\right) \Theta\left(1-\frac{r_{ij}}{\sigma_{ij}}\right) \hat{r}_{ij}.
+\end{align}
+%
+We compute the pressure using the microscopic formula \cite{ohern_jamming_2003,allen_computer_1989}
+%
+\begin{align}
+ \label{eqn:stress_tensor_definition}
+ P&= -\frac{1}{Vd} \sum_{i,j} \mathbf{f}_{ij} \cdot \mathbf{r}_{ij},
+ %\sum_{k} \mathbf{f}_\alpha^k \mathbf{r}_\beta^k
+ \end{align}
+ %
+where $V$ is the volume of the system.
+\ec{[Double check that this is right.]}\jamesemph{[maybe this is the point at which to emphasize the units and reference the supplement?]}
+
+
+
+
+
+%This number of contacts meets the Maxwell Criterion in which there is a constraint for every degree of freedom, leading to exactly $2d$ contacts per particle in the thermodynamic limit.
+%Universality of granular materials is a result of the contact statistics, 
+%This transition occurs when the number of force bearing contacts jumps abruptly from zero to a
+For soft spheres the packing fraction $\varphi$ can be increased, leading to new contacts and an increased pressure. We thus consider three natural metrics of distance from jamming:
+\begin{itemize}
+ \item excess packing fraction, $\Delta \varphi = \varphi - \varphi_j$,
+ \item excess contacts per particle $\delta z$, defined as $\delta z=\left(Z-Z_c\right) / N$ where $Z$ is the number of contacts,
+ \item pressure $P$.
+\end{itemize}
+
+%This number of excess contacts determines important properties of the system as the contact network completely determines a packing.
+The scaling theory of the jamming transition provides the following relationships between these metrics~\cite{ohern_jamming_2003, ohern_random_2002,liu_jamming_2010,goodrich_finite-size_2012, goodrich_scaling_2016}: 
+%
+\begin{align}
+P&=C_{p\varphi}\Delta \varphi \label{eqn:pvsphi} \\ 
+\delta z&=C_{zp}P^{1/2} \label{eqn:evsp} %\\ 
+%\delta z&=C_{zp}\sqrt{C_{p\varphi}}\left(\Delta\varphi\right)^{1/2} \label{eqn:evsphi}
+\end{align}
+%
+with prefactors $C_{p\varphi}$ and $C_{zp}$ that could in principle vary with dimension~\cite{ohern_jamming_2003}. %In this paper, we measure the scalings of these prefactors with dimension.
+
+Mean field theory predicts the following relationships \cite{parisi_theory_2020,franz_universality_2017}\footnote{These predictions are presented in the literature for systems in which the mean diameter is 1 rather than our schema in which the mean particle volume is 1 \ec{Where does this come from?  We should either use the simulation units in which system volume is 1, or else the theorist units in which diameter is 1}.  Details of the conversion can be found in the supplement.}:
+\begin{align}
+C_{p\varphi} &=  \hat{C}_1 \frac{1}{d} \label{eqn:meanFieldPressurePhi}\\
+C_{zp} &= \hat{C}_2 d \sqrt{2}^d \label{eqn:meanFieldExcessPressure}
+ \end{align}
+where $\hat{C}_1$ and $\hat{C}_2$ are finite constants in the $d\rightarrow\infty$ limit.
+%These quantities are calculated using the \ec{units} where systems are assumed to exist in a region of volume 1.  There is an alternate scheme in which particles are scaled to have a mean diameter of 1.  Our results can be rephrased into those units and are presented as such in the supplement.
+However, it is unclear whether these predictions apply in low dimensions. In this paper, we perform precision measurements of these prefactors in dimensions $2$ to $10$ and show that these mean field predictions are applicible even in low dimensions. 
+
+ \textit{Computational Methods} -- We use pyCudaPacking \cite{charbonneau_universal_2012}, a GPU-based simulation engine, to generate energy minimized soft sphere packings. We do so for number of particles $N=8192-32768$ and dimension $d=2-10$. Our results suggest that $N=8192$ is large enough to avoid finite size effects in $d<10$, and for $d=10$ we use a minimum system size of $32768$. The particles are monodisperse, except in 2D in which we use equal numbers of bidisperse particles with a size ratio of 1:1.4 to prevent crystallization.
+ 
+ The packings are subject to periodic boundary conditions. We minimize the packings using the FIRE minimization algorithm \cite{bitzek_structural_2006} using quad precision floating point numbers in order to achieve resolution on the contact network near the jamming point.
+ 
+ Starting with randomly distributed initial positions, we apply a search algorithm to create systems approximately logarithmically spaced in $\Delta\varphi$. At each step, we calculate the energy and, using the known power law relationship between energy and $\Delta\varphi$, calculate $\varphi_j$. We then find $\Delta\varphi$ and use it to calculate the next value of $\varphi$. We then adjust the packing fraction to the next value of $\varphi$ by uniformly scaling particle radii and minimizing the system. 
+ 
+\textit{Results} -- Figure \ref{plot:pvsphi} shows the measured linear scaling of pressure with packing fraction seperately for each dimension. For each dimension, we fit the data to eqn \ref{eqn:pvsphi} to find $C_{p\varphi}$, considering only data close to jamming to avoid fitting to high pressure deviations from the scaling power law. The measured values of $C_{p\varphi}$ are shown in the inset to confirm the $\frac{1}{d}$ dimensional scaling predicted by mean field theory in eqn \ref{eqn:meanFieldPressurePhi}. A fit to this scaling provides a value of $\hat{C}_1$ of 1.24.
+
+Figure \ref{plot:evsp} shows the measured square root scaling of excess contacts with pressure seperately for each dimension. For each dimension, we fit the data to eqn \ref{eqn:evsp} to find $C_{zp}$, the values of which are shown in the inset. The values in 2 and 3 dimensions are roughly consistent with those found in previous studies \cite{ohern_jamming_2003}. Beginning around 3 dimensions, the values of $C_{zp}$ confirm the dimensional scaling predicted by mean field theory in eqn \ref{eqn:meanFieldExcessPressure}, and a fit to this scaling provides a value of $\hat{C}_2$ of 0.38.
+
+\textit{Discussion} -- The close agreement of our data with the mean field predictions in low dimensions suggests that the mean field assumption is not essential to derive these scaling and prefactor relations. In the spirit of discovering proofs for these relations free of the mean field assumption, we present here a derivation for the relation between pressure and excess packing fraction that does not rely on the mean field assumption, and additionally provides a prediction for $\hat{C}_1$.
+
+\jamesemph{[I think this paragraph is already said and should be at most an endnote:]} The pressure is dimensionful, and there are two natural ways to nondimensionalize it: as $P \langle V_{\mathrm{particle}}\rangle$ or as $P \langle \sigma^d \rangle$. The former corresponds to the numerical value of the pressure in units where the average particle volume is 1, which we use, and the latter to units where the average particle diameter is 1, commonly used in the literature. Because the volume of a sphere as a function of $r$ has a dimension-dependent prefactor, this choice affects the scaling of $C_{p\varphi}$ and $C_{zp}$, which we discuss in detail in the supplement.
+
+The sum in equation \ref{eqn:stress_tensor_definition} can be rewritten as 
+\begin{align}
+P &= - \frac{1}{dV} N_c \left\langle \mathbf{f}_c \cdot \mathbf{r}_c \right\rangle .
+\end{align}
+In the near jamming limit, the number of contacts $N_c \approx Nd$, and each pair of particles in contact has $r_{ij} \approx \sigma_{ij}$. At this point we plug in our form for the force, giving
+\begin{align}
+ P &\approx \frac{2 N}{V} \left\langle1-\frac{r}{\sigma}\right\rangle \label{eqn:pressure_vs_overlap}
+\end{align}
+ 
+Since we know $P$ varies linearly with $\Delta \phi$ near jamming, calculating the prefactor is nothing more than calculating the bulk modulus near jamming. It is well known that we can obtain a reasonably close upper bound by computing the ``affine modulus'', i.e. assuming that the sole effect of compression is to rescale all particle separations by the same factor. \cite{ohern_jamming_2003, makse_why_1999}.
+
+ 
+%%%%%%%
+Now, consider a packing at jamming and apply  affine compression. If all volumes are rescaled by some fraction $\Delta V / V = \Delta \phi / \phi$, then all lengths are rescaled by $\Delta \ell / \ell = \frac{1}{d} \Delta \varphi / \varphi$.
+This allows us to express our dimensionless overlaps as:
+ \begin{align}
+ \left(1-\frac{r}{\sigma}\right) &= \frac{1}{d} \frac{\Delta \varphi}{\varphi},
+\end{align}
+
+and therefore  equation \ref{eqn:pressure_vs_overlap} becomes 
+\begin{align}
+ P &\approx \frac{2 N}{d V} \frac{\Delta \varphi}{\phi}. 
+ \end{align}
+
+ We work in simulation units where the average particle volume is 1, and thus
+ 
+ \begin{align}
+P &= \frac{2}{d} \Delta \varphi,
+\end{align}
+%
+in agreement with the prediction in the mean field case. 
+
+We can improve our prediction of the prefactor by accounting for nonaffine relaxation. At lowest order in pressure we may approximate the system as a network of unstressed springs, for which the bulk modulus may be calculated in terms of the ``states of self-stress'', sets of possible spring tensions $\ket{t}$ which do not produce any net force on a particle, as \cite{pellegrino_structural_1993, wyart_rigidity_2005, lubensky_phonons_2015}
+
+\begin{equation}
+K = K_\mathrm{aff} \sum_{i=1}^{N \Delta z} \left| \bra{t_i} k_{\mathrm{sss}}^{-1}\ket{E} \right|^2,
+\end{equation}
+
+where $\ket{E}$ is the normalized vector of affine bond extensions, whose elements are proportional to the lengths $r_k \approx \sigma_{ij}$ of the bonds, and $k_{\mathrm{sss}}^{-1}$ is the projection of the matrix of inverse spring constants onto the states of self stress. \sean{There's one technical detail I need to sort out - this spring constant term might actually allow us to eliminate the monodispersity assumption, which would explain why the calculation seems to work perfectly fine in $2d$.}
+
+The nonzero bulk modulus plateau at jamming originates from the fact that a single state of self stress must have all positive elements, since the forces between particles are all positive. \cite{wyart_rigidity_2005} At lowest order in $P$ we may thus only use this state of self stress in the calculation, furthermore by treating the system as monodisperse all elements of $\ket{E}$ become equal at lowest order and we arrive at the simple relation
+
+\begin{align}
+K &=  \frac{\left\langle f \right\rangle^2}{\left\langle f^2 \right\rangle} \, K_{\mathrm{aff}} \\
+P &= \frac{2}{d} \frac{\left\langle f \right\rangle^2}{\left\langle f^2 \right\rangle} \Delta \varphi \label{eqn:seanPrediction}
+\end{align}
+
+Thus, as long as the distribution of contact forces does not depend too strongly on dimension, this more accurate calculation of the scaling relation still agrees with the asymptotic mean-field scaling.  
+%
+\begin{figure}[t]
+\centering
+%carefully picked
+\includegraphics[width=\columnwidth, trim=143 238 168 260, clip]{pvsphiSub.pdf}
+\caption{Linear relation of pressure with packing fraction, scaled by $\varphi_j$ for clarity. Values of $\varphi_j$ are shown in table \ref{table:phij}. Inset shows inverse behavior of the prefactors $A$ with dimension.}
+\label{plot:pvsphi}
+\end{figure}
+%
+%
+\begin{figure}[t]
+\centering
+%carefully picked
+\includegraphics[width=\columnwidth, trim=143 242 168 260, clip]{evspSub.pdf}
+\caption{Scaled excess contacts shown against pressure demonstrate equation \ref{eqn:evsp}. The inset shows the exponential behavior of the prefactors $B$ with dimension.}
+\label{plot:evsp}
+\end{figure}
+%
+
+Moreover, we show the values of $C_{p\varphi}$ predicted by the ratio of force distrubution moments in equation \ref{eqn:seanPrediction}, and find that our prediction precisely explains the values of $C_{p\varphi}$.
+
+
+
+
+\textit{Conclusion} -- Mean field theory of jamming predicts both the scaling exponents and the dimensional scaling of their prefactors. While the exponents have been previously verified, we have demonstrated that even the prefactors are well predicted by mean field theory. While these prefactors should be considered especially sensitive to finite dimensional corrections, we show that the mean field prediction is exact in finite dimensions. This suggests that the mean field approximation is not necessary for jamming scaling relations, and that simpler first principles proofs which do not invoke the mean field exist, one of which we provide. These results call out for proofs for all of the other features, which is a challenge to the community.
+
+Many, perhaps all, results of the mean field have been shown to be exact or nearly exact in low dimensional jamming. However, low-d jamming explicitly violates the MF assumption. Therefore the MF assumption must not be needed in order to derive these results. maybe the mean field assumption isn't really needed at all, and maybe correlations don't really matter - should be looked at
+
+\bibliography{scaling}% Produces the bibliography via BibTeX.
+
+
+%%%%
+%this code block copied from https://tex.stackexchange.com/questions/168169/options-for-supplementary-materials-in-preprint-version-revtex-arxiv
+%%%%
+%%%%%%%%%% Merge with supplemental materials %%%%%%%%%%
+\pagebreak
+\widetext
+\clearpage
+\begin{center}
+\textbf{\large Supplemental Materials}
+\end{center}
+%%%%%%%%%% Merge with supplemental materials %%%%%%%%%%
+%%%%%%%%%% Prefix a "S" to all equations, figures, tables and reset the counter %%%%%%%%%%
+\setcounter{equation}{0}
+\setcounter{figure}{0}
+\setcounter{table}{0}
+\setcounter{page}{1}
+\makeatletter
+\renewcommand{\theequation}{S\arabic{equation}}
+\renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\bibnumfmt}[1]{[S#1]}
+\renewcommand{\citenumfont}[1]{S#1}
+%%%%%%%%%% Prefix a "S" to all equations, figures, tables and reset the counter %%%%%%%%%%
+
+
+\subsection{Effect of unit choice on pressure}
+We consider here the effect of unit choice on the pressure: we use $P$ to denote pressure in our units of fixed box size ($V=1$), and $\tilde P$ to denote pressure in units of fixed particle diameter ($\tilde \sigma=1$). We denote the volume of a d-dimensional sphere of radius 1 as $V_d$, and note that a hypersphere of diameter 1 has volume $\frac{V_d}{2^d}$. 
+%
+
+\jamesemph{this isn't actually a derivation, just a list of conversions - we should include sean's text from slack}
+
+\begin{align}
+ \frac{P}{\varphi/N} \frac{1}{V} &= \frac{P}{\varphi/N} (2r)^d \\
+ &= \frac{P}{\varphi} \rho \\
+ &= P \frac{1}{V_{sphere,d=1}}\\
+ &= P \frac{2^d}{V_{sphere,r=1}}\\
+ &=\tilde P
+\end{align}
+
+\subsection{Derivation of mean field predictions and conversion into our units}
+
+Mean field theory predicts that pressure scales with $\varphi$ in the following way:
+\begin{align}
+ \hat{P} &= \frac{\tilde P}{\rho d} \\
+ &= \frac{1}{d^2} \hat{C}_1(\hat{\varphi} - \hat{\varphi_j}) \\
+ \tilde P &= \frac{\rho}{d} \hat{C}_1(\hat{\varphi} - \hat{\varphi_j}) \\
+\tilde P &= \frac{1}{d} \rho \hat{C}_1\frac{1}{\varphi_j}(\varphi - \varphi_j) \\
+P &\approx \frac{1}{d} \hat{C}_1 (\varphi - \varphi_j),
+ \end{align}
+ \jamesemph{[i'm not completely sure that we are incorporating the $d^2$ in the correct way]}
+ taking the near jamming approximation $\varphi \approx \varphi_j$.
+ Note that our potential differs from that commonly used in mean field theory by a factor of $d^2$. We additionally  (see definition of the potential, eqn 2.84 in the book). 
+
+The number of contacts, $z$, is predicted by mean field theory to have the form
+%
+\begin{align}
+\frac{z}{2d} &=1 + \hat{C}_3\sqrt{\hat{\varphi}-\hat{\varphi_j}} \\
+\frac{z}{2d} &=1 + \hat{C}_3\sqrt{\frac{2^d}{d}}\sqrt{\varphi-\varphi_j}
+\end{align}
+%
+for some constant $\hat{C}_3$. 
+
+The number of excess contacts, $\delta z$, therefore is predicted to scale as follows:
+\begin{align}
+\frac{\delta z}{2d} &= \hat{C}_2\sqrt{\frac{2^d}{d}}\sqrt{\varphi - \varphi_j} \\ % the 1 goes away cuz it's dz
+\delta z &= \hat{C}_2\sqrt{d} 2^{\frac{d}{2}} \sqrt{\Delta \varphi}.
+\end{align}
+
+By combining these equations, we can also predict the relation between $\delta z$ and $P$:
+%
+\begin{align}
+ \delta z &= \hat{C}_3\sqrt{d} 2^{\frac{d}{2}} \sqrt{\frac{d}{\hat{C}_1}P} \\
+ &= \frac{\hat{C}_3}{\sqrt{\hat{C}_1}} d 2^{\frac{d}{2}} \sqrt{P} \\
+ &= \hat{C}_2 d 2^{\frac{d}{2}} \sqrt{P}
+\end{align}
+%
+where we define $\hat{C}_2=\frac{\hat{C}_3}{\sqrt{\hat{C}_1}}$.
+
+
+\subsection{Excess Contacts vs Excess Packing Fraction Prefactor Scaling}
+
+From eqns \ref{eqn:pvsphi} and \ref{eqn:evsp} we can simply relate $\delta z$ and $\varphi$ as follows:
+%
+\begin{equation}
+\delta z=C_{z\varphi}\left(\Delta\varphi\right)^{1/2} \label{eqn:evsphi}
+\end{equation}
+%
+where clearly, $C_{z\varphi}=C_{zp}\sqrt{C_{p\varphi}}$
+In figure \ref{plot:evsphi}, we show this scaling seperately for each dimension. We fit each line to eqn \ref{eqn:evsphi} to find the values of the prefactor $C_{z\varphi}$ in each dimension, the values of which are shown in the inset. These values agree well with both the mean field prediction above $3D$, shown as a black line, and our calculated value from $C_{zp}$ and $C_{p\varphi}$, shown as black x's in figures \ref{plot:evsp} and \ref{plot:pvsphi}.
+
+%
+\begin{figure}[bh!]
+\centering
+\includegraphics[width=300px, trim=143 240 168 260, clip]{evsphi.pdf}
+\caption{Scaled number of excess contacts shown against packing fraction demonstrate equation \ref{eqn:evsphi}. The inset shows the scaling of the prefactor between them (blue dots), overlain with both the mean field prediction (black line) and the calculated values of these prefactors from the measured values of $A$ and $B$ (black x's).} %https://www.latimes.com/socal/burbank-leader/opinion/tn-blr-me-aword-20181005-story.html
+\label{plot:evsphi}
+\end{figure}
+%
+
+\end{document}
+%
+% ****** End of file aipsamp.tex ******
+
