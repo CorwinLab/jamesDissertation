@@ -1,21 +1,6 @@
 
-
-%%%%%%%%%% Prefix a "S" to all equations, figures, tables and reset the counter %%%%%%%%%%
-%\setcounter{equation}{0}
-%\setcounter{figure}{0}
-%\setcounter{table}{0}
-%\setcounter{page}{1}
-%\makeatletter
-%\renewcommand{\theequation}{S\arabic{equation}}
-%\renewcommand{\thefigure}{S\arabic{figure}}
-%\renewcommand{\bibnumfmt}[1]{[S#1]}
-%\renewcommand{\citenumfont}[1]{S#1}
-%%%%%%%%%% Prefix a "S" to all equations, figures, tables and reset the counter %%%%%%%%%%
-%%%%%%%%%% 
-
-%\begin{document}
 \chapter{Supplementary Material of ``Mean-field predictions of scaling prefactors match low-dimensional jammed packings''}
-\author{James D Sartor$^*$, Sean A. Ridout$^\dagger$, Eric I. Corwin$^*$}
+\author{James D Sartor, Sean A. Ridout, Eric I. Corwin}
 %\affiliation{$^*$Department of Physics and Materials Science Institute, University of Oregon, Eugene, Oregon 97403, USA \\ $^\dagger$Department of Physics and Astronomy University of Pennsylvania, Philadelphia, PA 19104, USA}
 %\maketitle
 
@@ -93,10 +78,8 @@ The number of excess contacts, $\delta z$, therefore is predicted to scale as fo
 
 \subsection{Mean Field Prediction of Packing Fraction vs Number of Excess Contacts}
 
-By combining equations 10
-%\ref{sup_eqn:finalpvsphi} 
-and 14,
-%\ref{supeqn:finalphivsz}
+By combining equations \ref{sup_eqn:finalpvsphi} 
+and \ref{supeqn:finalphivsz},
 we can also predict the relation between $\delta z$ and $P$:
 %
 \begin{align}
@@ -109,8 +92,7 @@ where we define $\hat{C}_{zp}=\frac{2\hat{C}_{z\varphi}}{\sqrt{\hat{C}_{p\varphi
 \begin{figure}[th!]
 \includegraphics[width=300px, trim=143 240 168 250, clip]{excessContactsScaling/evsphi.pdf}
 
-\caption{Measured excess contacts scales with the square root of excess packing fraction for systems from $d=2$ to $d=10$ (red circles). Black lines show the fits for $C_{zp}$ using eqn \ref{eqn:evsphi}. For our fits, we ignore data at high pressure and low contact number as in figure 2.
-%\ref{plot:evsp}.
+\caption{Measured excess contacts scales with the square root of excess packing fraction for systems from $d=2$ to $d=10$ (red circles). Black lines show the fits for $C_{zp}$ using eqn \ref{eqn:evsphi}. For our fits, we ignore data at high pressure and low contact number as in figure \ref{plot:evsp}.
 Dotted lines show the extension of our fits beyond the fitted range. Inset shows the measured values of $C_{z\varphi}$ (blue circles), which scale in agreement with the mean field prediction eqn \ref{supeqn:finalphivsz} using measured values of with $\hat{C}_{z\varphi} \approx 0.83$. Additionally, to note consistency we show that our measured values of $C_{z\varphi}$ agree well with values calculated from our measurements of $C_{p\varphi}$ and $C_{zp}$ using eqn \ref{eqn:consistency} (black x's).}
 
 \label{plot:evsphi}
@@ -118,10 +100,7 @@ Dotted lines show the extension of our fits beyond the fitted range. Inset shows
 %
 \subsection{Excess Contacts vs Excess Packing Fraction Prefactor Scaling}
 
-From eqns 5
-%\ref{eqn:pvsphi} 
-and 6
-%\ref{eqn:evsp} 
+From eqns \ref{eqn:pvsphi} and \ref{eqn:evsp} 
 we can simply relate $\delta z$ and $\varphi$ as follows:
 %
 \begin{equation}
@@ -133,10 +112,8 @@ where clearly,
 C_{z\varphi}=C_{zp}\sqrt{C_{p\varphi}}. \label{eqn:consistency}
 \end{align}
 
-In figure \ref{plot:evsphi}, we show this scaling seperately for each dimension. We fit each line to eqn \ref{eqn:evsphi} to find the values of the prefactor $C_{z\varphi}$ in each dimension, the values of which are shown in the inset. These values agree well with both the mean field prediction above $3D$, shown as a black line, and our calculated value from $C_{zp}$ and $C_{p\varphi}$, shown as black x's in figures 1
-%\ref{plot:pvsphi} 
-and 2.
-%\ref{plot:evsp}.
+In figure \ref{plot:evsphi}, we show this scaling seperately for each dimension. We fit each line to eqn \ref{eqn:evsphi} to find the values of the prefactor $C_{z\varphi}$ in each dimension, the values of which are shown in the inset. These values agree well with both the mean field prediction above $3D$, shown as a black line, and our calculated value from $C_{zp}$ and $C_{p\varphi}$, shown as black x's in figures \ref{plot:pvsphi} 
+and \ref{plot:evsp}.
 
 %
 \subsection{Dimensional Dependence of Force Moment Ratios}
@@ -146,14 +123,14 @@ In figure \ref{plot:mfr} we show that the ratio of force moments does not depend
 
 \begin{figure}[h!]
 %    \caption{Dimensional dependence of force moment ratios}
-  %\label{plot:test}
+%  \label{plot:test}
 %  \begin{subfigure}[t]{0.47\columnwidth}
-    \includegraphics[width=230px, trim=133 242 168 254, clip]{excessContactsScaling/mfr.pdf}
-    \caption{Dimensionless moment ratio of first and second moments of $\sigma f$ shows no dimensional dependence}
+  \includegraphics[width=230px, trim=133 242 168 254, clip]{excessContactsScaling/mfr.pdf}
+     \caption{Dimensionless moment ratio of first and second moments of $\sigma f$ shows no dimensional dependence}
      \label{plot:mfr}
-     %  \end{subfigure}
 \end{figure}
 \begin{figure}[h!]
+     %  \end{subfigure}
 %  \hfill %%
 %  \begin{subfigure}[t]{0.47\columnwidth}
     \includegraphics[width=230px, trim=143 240 163 250, clip]{excessContactsScaling/theoryMFR.pdf}
@@ -185,18 +162,15 @@ In terms of these quantities, the bulk modulus may be written as \cite{pellegrin
 \pdv[2]{E}{V} = \frac{1}{V}  \bra{E} S  \left(S \left(k^{-1}\right) S \right)^{-1} S \ket{E}. \label{eqn:genf}
 \end{equation}
 
-In the one SSS approximation, we can evaluate the two projected quantities that we need to evaluate equation \ref{eqn:genf}. Equations 10
-%\ref{eqn:affine} 
-and 12
-%\ref{eqn:sss} 
+In the one SSS approximation, we can evaluate the two projected quantities that we need to evaluate equation \ref{eqn:genf}. Equations \ref{eqn:affine} 
+and \ref{eqn:sss} 
 give
 
 \begin{align}
     S \ket{E} = \bra{s_0}\ket{f} \ket{s_0}= \frac{\bra{r}\ket{f}}{d \sqrt{\bra{f}\ket{f}}}\ket{s_0} = \sqrt{Z}\frac{\langle r f \rangle}{d \sqrt{\langle f^2 \rangle}} \ket{s_0}, 
 \end{align}
 
-and equations \ref{eqn:compliance} and 12
-%\ref{eqn:sss} 
+and equations \ref{eqn:compliance} and \ref{eqn:sss} 
 give
 
 \begin{align}
@@ -210,8 +184,7 @@ Furthermore at lowest order in $P$ we have $\ket{r} = \ket{\sigma}$, and we may 
 K = \frac{2 N \eps}{ d V}  \frac{\langle \sigma f \rangle^2}{\langle \sigma^2 f^2 \rangle},
 \end{equation}
 
-and thus via equation 9:
-%\ref{eqn:CisK}
+and thus via equation \ref{eqn:CisK}:
 
 \begin{equation}
     C_{p\varphi} = \frac{2}{d} \frac{ \langle \sigma f \rangle^2}{\langle \sigma^2 f^2 \rangle}.\label{eqn:seanPredictionSupp}
@@ -231,35 +204,31 @@ and expected to scale as:
  \delta z &= C_{ze} e^\frac{1}{2} \label{sup_eqn:evsprestress}
 \end{align}
 %
-because it is proportional to pressure near the jamming transition \cite{shimada_low-frequency_2019}. We examine the collapse of scaled excess contacts with prestress (fig. \ref{plot:evsprestress}), and compare it to the collapse of excess contacts scaled by the mean field prediction with pressure (fig. \ref{plot:evspcomp}). In figure \ref{plot:evsprestress} we see that the collapse with prestress is not quite perfect - there is a clear upward trend. This stands in contrast to the inset of figure \ref{plot:evspcomp}, which shows $\hat{C}_{zp}$ to be nearly constant above three dimensions.
+because it is proportional to pressure near the jamming transition \cite{shimada_low-frequency_2019}. In figures \ref{plot:evsprestress} and  \ref{plot:evspcomp},, we examine the collapse of scaled excess contacts with prestress and compare it to the collapse of excess contacts scaled by the mean field prediction with pressure. In figure \ref{plot:evsprestress} we see that the collapse with prestress is not quite perfect - there is a clear upward trend. This stands in contrast to the inset of figure \ref{plot:evspcomp}, which shows $\hat{C}_{zp}$ to be nearly constant above three dimensions.
 
 
   
 \begin{figure}[h!]
-    %\caption{Comparison of scaled excess contacts with pressure and prestress.}
-  %\label{plot:comparison}
-%  \begin{subfigure}[t]{0.47\columnwidth}
+ %   \caption{Comparison of scaled excess contacts with pressure and prestress.}
+% \label{plot:comparison}
+% \begin{subfigure}[t]{0.47\columnwidth}
     \includegraphics[width=230px, trim=133 242 168 254, clip]{excessContactsScaling/evspcomp.pdf}
-    \caption{Scaled excess contacts scales with the square root of pressure as in figure 2.
-    %\ref{plot:evsp}. 
-    However, with excess contacts scaled by the expected mean field prediction, eqn. 8,
-    %\ref{eqn:meanFieldExcessPressure},
+   \caption{Scaled excess contacts scales with the square root of pressure as in figure \ref{plot:evsp}. 
+    However, with excess contacts scaled by the expected mean field prediction, eqn. \ref{eqn:meanFieldExcessPressure},
     the data collapse onto a single line. The inset confirms the collapse, showing $\hat{C}_{zp}$ to be nearly constant.}
      \label{plot:evspcomp}
 \end{figure}
 \begin{figure}[h!]
-%\hfill %%
+%  \hfill %%
 %  \begin{subfigure}[t]{0.47\columnwidth}
     \includegraphics[width=230px, trim=143 240 163 250, clip]{excessContactsScaling/prestressvse.pdf}
-    \caption{Scaled excess contacts scales with the square root of prestress for systems from $d=2$ to $d=10$. Black lines show the fits for $C_{ze}$ using eqn \ref{sup_eqn:evsprestress}. The fits ignore high and low pressure data as in figure 2.
-    %\ref{plot:evsp}. 
+    \caption{Scaled excess contacts scales with the square root of prestress for systems from $d=2$ to $d=10$. Black lines show the fits for $C_{ze}$ using eqn \ref{sup_eqn:evsprestress}. The fits ignore high and low pressure data as in figure \ref{plot:evsp}. 
     Lower inset shows the measured values of $C_{ze}$ which have a clear upward trend.}
     \label{plot:evsprestress}
-  %\end{subfigure}
+%  \end{subfigure}
 \end{figure}
 
-In fact, close to jamming so that $r \approx \sigma$ and $Z \approx N d$, our dimensionless pressure $P$ as defined in equation 4
-%\ref{eqn:stress_tensor_definition}  
+In fact, close to jamming so that $r \approx \sigma$ and $Z \approx N d$, our dimensionless pressure $P$ as defined in equation \ref{eqn:stress_tensor_definition}  
 is related to the prestress by
 %
 \begin{align} P &= \frac{\bar{V}_p}{\varepsilon Vd} \sum_{i,j} \mathbf{f}_{ij} \cdot \mathbf{r}_{ij} \\
@@ -278,9 +247,9 @@ Thus, our better-fitting form for the $z-P$ relationship amounts to the statemen
  Thus our scaling forms agree with the statement of reference \cite{shimada_low-frequency_2019} in the infinite-$d$ limit, although we see better fit with our form in low dimensions.
 
 
-\bibliography{scaling}% Produces the bibliography via BibTeX.
+%\bibliography{scaling}% Produces the bibliography via BibTeX.
 
-\end{document}
-%
+%\end{document}
+%yes
 % ****** End of file aipsamp.tex ******
 
