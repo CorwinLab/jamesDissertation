@@ -1,0 +1,8 @@
+
+dissertation.blg
+*.lof
+*.log
+*.gz
+*.toc
+*.aux
+*.bbl
