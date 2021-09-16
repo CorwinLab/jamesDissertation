@@ -23,12 +23,6 @@ From crafting swords and arrowheads in antiquity to perusing katanas at the mall
 Early approaches to amorphous systems attempted to model them as highly defective crystalline systems, but such models fail to capture emergent phenomena \cite{goodrich_solids_2014}. Amorphous systems thus must be treated in their own right, consequently there exists no obvious definition of a defect. However, ``soft spots'' can be found which are locations in which rearrangements are more likely to occur under shear. These were first explored via analysis of the low-frequncy quasilocalized vibrational modes \cite{manning_vibrational_2011} and have been more recently identified by using machine learning analysis on the local structure \cite{cubuk_identifying_2015, cubuk_structural_2016, ding_soft_2014, wijtmans_disentangling_2017,schoenholz_structural_2016,schoenholz_understanding_2014,richard_predicting_2020,rocks_learning-based_2021,ridout_correlation_2020}.
 While this has been highly effective at identifying sites of rearrangements under shear, it has not been applied to systems under decompression, another common failure mode of materials. More importantly, while softness is correlated with structural quantities such as local potential energy and coordination number, these structural properties are not good predictors of rearrangements on their own. Thus softness, while useful as a heuristic, lacks analytic clarity. Additionally, while softness is an excellent predictor of instabilities, it does not predict stable contact network changes (i.e. contact changes which do not result in rearrangements), which comprise the majority of contact network changes \cite{morse_differences_2020,tuckman_contact_2020}. In this work we demonstrate a method for identifying defective contacts under decompression asymptotically close to the jamming/unjamming transition. We use the geometry of the force network ensemble to show that in the near-jamming limit there exists only a small and precisely identifiable number of contacts at which any contact network change can occur.
 
-\begin{figure}[t]
-\includegraphics[width=\columnwidth, trim=99 240 136 255, clip]{contactBreakingPaper/forceSpace.pdf}
-\caption{Scatter plot of the loads on each contact in the two states of self stress $F_1$ and $F_2$ for a typical system ($N=128$) at 2SSS. Black lines represent the two linear combinations of force eigenvectors at the boundary of the allowed region of force space, shaded green. The two contacts which define these boundaries are shown in red. Green line shows linear combination that reconstructs the measured physical forces. Inset shows a region near the origin in greater detail. For a more pedagogical explanation see figure 1 in \cite{sartor_direct_2020}.}
-\label{plot:fig1}
-\end{figure}
-
 
 \section{Background}
 
@@ -58,13 +52,6 @@ In previous work, we demonstrated that by considering the geometric nature of th
 
 %methods
 
-
-\begin{figure}[t!]
-\includegraphics[width=\columnwidth, trim=94 242 130 260, clip]{contactBreakingPaper/angleVsPressure.pdf}
-\caption{Angle $\theta$ between the force spaces of a system at a pressure $P$ and $P^*$. Perpendicular force spaces would have $\theta = \pi/2$, shown as a black line. Data shown for $N$=128 (green), 1024 (blue), and 8192 (red), with opacity proportional to $P$.}
-\label{plot:anglevpressure}
-\end{figure}
-
 \section{Computational Methods}
 
 We use pyCudaPacking~\cite{charbonneau_universal_2012}, a GPU-based simulation engine, to generate monodispersed three dimensional harmonic soft sphere packings in periodic boundary conditions. 
@@ -77,6 +64,12 @@ Using the same methods as in Refs. \cite{sartor_mean-field_2021,morse_echoes_201
 %We then adjust the packing fraction to this value of $\varphi$ by uniformly scaling particle radii and minimizing the system. 
 We continue this process until the system has exactly one state of self stress. We generate datasets of 500 systems at $N={128, 1024}$ and 100 systems at $N=8192$.  We measure the pressure $P$ from the trace of the stress tensor as in Ref. \cite{ohern_jamming_2003} and denote the pressure at which the system transitions from 2SSS to 1SSS as $P^*$.
 
+\begin{figure}[t!]
+\includegraphics[width=\columnwidth, trim=99 240 136 255, clip]{contactBreakingPaper/forceSpace.pdf}
+\caption{Scatter plot of the loads on each contact in the two states of self stress $F_1$ and $F_2$ for a typical system ($N=128$) at 2SSS. Black lines represent the two linear combinations of force eigenvectors at the boundary of the allowed region of force space, shaded green. The two contacts which define these boundaries are shown in red. Green line shows linear combination that reconstructs the measured physical forces. Inset shows a region near the origin in greater detail. For a more pedagogical explanation see figure 1 in \cite{sartor_direct_2020}.}
+\label{plot:fig1}
+\end{figure}
+
 
 %%%%%%%%this marks the beginning of talking about RESULTS
 \section{Results}
@@ -84,6 +77,14 @@ We continue this process until the system has exactly one state of self stress. 
 
 The force network ensemble is the set of linear combinations of these SSS for which all forces are positive semi-definite. This defines a region in force space, the boundaries of which are the linear combinations of the SSS that bring the load on a contact or set of contacts to zero. 
 In a system with 2SSS, one can exploit the orthogonality of the SSS to choose the linear combination that yields zero force on any given contact. The imposition of this constraint necessarily reduces the number of SSS by one, and within the context of the force network ensemble is equivalent to breaking a contact. However, with most contacts, this will result in negative forces (i.e. tensile loads) on some of the contacts unless the contact chosen is on the boundary of the allowed volume of force space. We demonstrate this geometrically in figure \ref{plot:fig1}.  
+
+
+
+\begin{figure}[t!]
+\includegraphics[width=\columnwidth, trim=94 242 130 260, clip]{contactBreakingPaper/angleVsPressure.pdf}
+\caption{Angle $\theta$ between the force spaces of a system at a pressure $P$ and $P^*$. Perpendicular force spaces would have $\theta = \pi/2$, shown as a black line. Data shown for $N$=128 (green), 1024 (blue), and 8192 (red), with opacity proportional to $P$.}
+\label{plot:anglevpressure}
+\end{figure}
 
 
 
@@ -100,9 +101,8 @@ where
 %
 While uncorrelated 2 dimensional planes drawn through the $N_c$ dimensional force space are nearly perpendicular (i.e. $\theta \sim \frac{\pi}{2}$), we show in figure \ref{plot:anglevpressure} that the force space volumes of our systems are always nearly aligned, even over wide ranges of pressure. This shows that the force network ensemble of a packing is stable under decompression, at least between rearrangements. Thus, it should be possible to use the force network ensemble to predict the evolution of the physical forces as the pressure is varied.
 
-
-\begin{figure}[h!]
-\includegraphics[width=\columnwidth, trim=98 140 139 101, clip]{contactBreakingPaper/combinedTrajectoryComparison.pdf}
+\begin{figure}[th!]
+\includegraphics[width=0.75\columnwidth, trim=98 140 139 101, clip]{contactBreakingPaper/combinedTrajectoryComparison.pdf}
 \caption{a) Evolution of mixing angle representation of the force space under decompression for the system in figure \ref{plot:fig1} over the range of pressures for which the system is at 2SSS. Position in force space is shown as mixing angles $\alpha-\alpha^*$ where $\alpha^*$ is the mixing angle of the system at the contact breaking event. Green shaded region shows all mixing angles for positive-definite force networks.  Green line shows the physical forces.  Red lines show the positive semi-definite boundaries.  Grey lines show mixing angles which would bring other contacts to zero force.
 b) Evolution of the system in force space, shown as in the inset to figure \ref{plot:fig1}. The highest and lowest pressures at which the system is at 2SSS are shown as grey circles and black x's, with arrows between them. ``Breakable contacts'' on the edge of force space are shown in red.}
 \label{plot:trajectory}
@@ -111,6 +111,10 @@ b) Evolution of the system in force space, shown as in the inset to figure \ref{
 In a system at 2SSS, the space of normalized linear combinations of the SSS is a one dimensional space of rotations, as any stable force configuration $f$ can be described by a mixing angle $\alpha$ such that $f = \sin(\alpha) F_1 + \cos(\alpha) F_2$, where $F_1$ and $F_2$ are the linearly independent SSS. While the physical forces in the packing are instead calculated from the overlaps, they represent a stable force network and as such we are always able to express them with a mixing angle in this way, up to machine precision and an overall scale factor. In the intervals between contact changes, we may thus consider the physical forces in the packing as flowing within this space of SSS, which is only gently changing as shown in figure \ref{plot:anglevpressure}. In figure \ref{plot:trajectory}(a), we show the mixing angles that describe the position within this space for the physical forces of a 2SSS system as it decompresses towards $P=P^*$. By following these mixing angles as a system decompresses, we see how the physical forces in the system approach and reach one of the 1SSS states on the boundaries of the 2SSS space. As an example, we can follow the upper red curve in figure \ref{plot:trajectory}(a) down in pressure towards the contact break, and we see that this system has a kink around $(P-P^*)/P^* \sim 1.3$. This arises from the exchange of the contact that originally formed the boundary of the allowed force space for another, which can be seen graphically in figure \ref{plot:trajectory}(b). Thus a prediction made with the boundary contact above that pressure will fail. The interchange in this manner of boundary contacts with other contacts that were intitially near the boundary is relatively unusual and is the sole failure mode of our prediction.
 
 
+
+
+In a 2SSS system, there are always exactly two boundaries on the edge of the force space which correspond to two sets of ``breakable contacts.'' Each of these sets of contacts usually contains just one contact, but sometimes breaking a contact will form a rattler particle, all of whose contacts will thus be in the set of breakable contacts. In figure \ref{plot:predictionProb}, we show the probability that one of these sets of ``breakable contacts'' is in fact broken under decompression from 2SSS to 1SSS. We find that the contacts predicted by the FNE are strongly predictive (greater than $80\%$) over the full range of pressures for which the system has 2SSS. This is in sharp contrast to the na\"ive prediction from affine response, that the smallest contact will break. Affine response is predictive very close to the contact breaking event, but falls to zero at higher pressures.
+
 \begin{figure}[t!]
 \includegraphics[width=\columnwidth, trim=104 240 123 260, clip]{contactBreakingPaper/pcorrect.pdf}
 \caption{Probability of predicting contact breaking by FNE versus scaled pressure, for systems decompressing from 2SSS to 1SSS. As in fig. \ref{plot:anglevpressure}, $N$=128 (green), 1024 (blue), 8192 (red). Probability of smallest force in the system breaking is shown for $N=128$ (dark grey), 1024 (medium grey), 8192 (light grey). %Note that because systems above 2SSS are not included, there are fewer systems at higher pressures.
@@ -118,11 +122,7 @@ In a system at 2SSS, the space of normalized linear combinations of the SSS is a
 \label{plot:predictionProb}
 \end{figure}
 
-In a 2SSS system, there are always exactly two boundaries on the edge of the force space which correspond to two sets of ``breakable contacts.'' Each of these sets of contacts usually contains just one contact, but sometimes breaking a contact will form a rattler particle, all of whose contacts will thus be in the set of breakable contacts. In figure \ref{plot:predictionProb}, we show the probability that one of these sets of ``breakable contacts'' is in fact broken under decompression from 2SSS to 1SSS. We find that the contacts predicted by the FNE are strongly predictive (greater than $80\%$) over the full range of pressures for which the system has 2SSS. This is in sharp contrast to the na\"ive prediction from affine response, that the smallest contact will break. Affine response is predictive very close to the contact breaking event, but falls to zero at higher pressures.
 
-
-
-We examined the real space correlations between pairs of breakable contacts and found no correlation in position or angle subtended between contact vectors. However, we find that breakable contacts are more likely to occur between particles with higher than average contact number ($z\sim6.4$). Such particles are thus more likely to have a contact that is unnecessary for system stability. This stands in contrast to the soft spot literature, in which particles with fewer contacts are identified as more likely to rearrange \cite{manning_vibrational_2011,ridout_correlation_2020,rocks_learning-based_2021,richard_predicting_2020}. This difference arises because soft spots exclusively identify instabilities, but the FNE also predicts the more numerous stable contact changes involving more highly coordinated particles.
 
 \begin{figure}[t!]
 \includegraphics[width=\columnwidth, trim=103 239 130 252, clip]{contactBreakingPaper/numBreakable.pdf}
@@ -130,6 +130,9 @@ We examined the real space correlations between pairs of breakable contacts and 
 Purple line shows the empirical fit  $N_{bc} \approx 2.43d_{SSS}^{1.44}$.}
 \label{plot:numBreakable}
 \end{figure}
+
+We examined the real space correlations between pairs of breakable contacts and found no correlation in position or angle subtended between contact vectors. However, we find that breakable contacts are more likely to occur between particles with higher than average contact number ($z\sim6.4$). Such particles are thus more likely to have a contact that is unnecessary for system stability. This stands in contrast to the soft spot literature, in which particles with fewer contacts are identified as more likely to rearrange \cite{manning_vibrational_2011,ridout_correlation_2020,rocks_learning-based_2021,richard_predicting_2020}. This difference arises because soft spots exclusively identify instabilities, but the FNE also predicts the more numerous stable contact changes involving more highly coordinated particles.
+
 
 At 2SSS, the two ``breakable contacts'' are excellent predictors of contact breaking events. 
 At increased pressure, the number of contacts and thus SSS increase. In figure \ref{plot:numBreakable}, we examine the relationship between the number of predicted breakable contacts, $N_{bc}$ and the number of states of self stress, $N_{SSS}$. 

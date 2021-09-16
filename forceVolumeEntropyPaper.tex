@@ -33,15 +33,6 @@ The temperature analogue angoricity is defined as the derivative of entropy with
 
 In this Rapid Communication, we present a first principles derivation of the entropy for the force networks of granular packings.  We measure this entropy up to a multiplicative constant, $h_f$, in the near jamming limit by directly measuring the volume of the space of allowed force configurations.  Analogous to Planck's constant in the Sackur-Tetrode equation, $h_f$ discretizes the space of force configurations into an integer number of accessible states.  We then use the method of overlapping histograms to measure angoricity as a function of pressure, and compare with our force volume measure to solve for $h_f$. This concretely connects the bulk nature of angoricity with the microscopic multiplicity of the force network ensemble.
 
-\begin{figure*}[t]
-\centering
-\includegraphics[width=\textwidth, trim=150 70 150 70, clip]{forceVolumeEntropyPaper/methodIllustration.pdf}
-\caption{Force volume measurement for a system with one excess contact. Left, the two independent states of self stress, $F_1$ and $F_2$. Black lines between particles represent positive (compressive) forces, red lines represent negative (tensile) forces. 
-Center, a scatter plot of $F_1$ vs $F_2$ for each pair of particles. Linear combinations of $F_1$ and $F_2$ are represented graphically by drawing a sloped line through the origin and measuring the distance to each point.  Any sloped line for which all of the points fall into the same half-space corresponds to a positive definite linear combination. The set of lines which allow for such solutions is the force space volume, indicated by the angle $\theta$. Note that in a system with $\Delta Z$ excess contacts, this volume is a $\Delta Z$ dimensional quantity.
-Right, the two extremal positive-definite linear combinations at the edge of this region are shown. Each has one force brought to precisely zero.}
-\label{methodIllustrationFigure}
-\end{figure*}
-
  \section{Computational methods} We use pyCudaPacking \cite{charbonneau_universal_2012}, a GPU-based simulation engine, to generate energy minimized soft sphere packings at specified pressures in periodic boundary conditions. We do so for number of particles, $N$, spanning from 256 to 4096, and dimension, $d$, from 2 to 5. The particles are monodispersed, except in 2D in which we use equal numbers of bidispersed particles at a size ratio of 1.4:1 to prevent crystallization. Particles interact through a harmonic contact potential as defined in \cite{charbonneau_universal_2012}, and the system's energy is minimized using the FIRE minimization algorithm \cite{bitzek_structural_2006}.
  
 Starting with random initial positions, we minimize energy and then adjust overall density by uniformly scaling particle radii to achieve a pressure $P$ of $10^{-2}$ in natural units, as defined in \cite{ohern_jamming_2003}. This pressure is chosen to prevent crystallization artifacts from high density packings. From there, we iteratively adjust the density both up and down to achieve specific values of pressure.  We do this efficiently by exploiting the known linear scaling of pressure with density above jamming for a harmonic potential \cite{goodrich_scaling_2016}. For each targeted pressure, we ensure that the actual pressure is accurate to a factor of $10^{-5}$. We sample 100 logarithmically spaced steps per decade of pressure to ensure sufficient overlap between the distributions of local pressure for neighboring systems, as is needed for the method of overlapping histograms.
@@ -76,6 +67,15 @@ A system with this minimum number of contacts has exactly one state of self stre
  \end{align}
  %
 where the 2 reflects that each excess contact is shared between two particles. These independent states of self stress form a basis for the $\Delta Z+1$ dimensional space of all mechanically stable force configurations of the spring network. However, imposing a normalization condition restricts this to a $\Delta Z$ dimensional subspace.
+
+\begin{figure*}[th!]
+\centering
+\includegraphics[width=\textwidth, trim=150 70 150 70, clip]{forceVolumeEntropyPaper/methodIllustration.pdf}
+\caption{Force volume measurement for a system with one excess contact. Left, the two independent states of self stress, $F_1$ and $F_2$. Black lines between particles represent positive (compressive) forces, red lines represent negative (tensile) forces. 
+Center, a scatter plot of $F_1$ vs $F_2$ for each pair of particles. Linear combinations of $F_1$ and $F_2$ are represented graphically by drawing a sloped line through the origin and measuring the distance to each point.  Any sloped line for which all of the points fall into the same half-space corresponds to a positive definite linear combination. The set of lines which allow for such solutions is the force space volume, indicated by the angle $\theta$. Note that in a system with $\Delta Z$ excess contacts, this volume is a $\Delta Z$ dimensional quantity.
+Right, the two extremal positive-definite linear combinations at the edge of this region are shown. Each has one force brought to precisely zero.}
+\label{methodIllustrationFigure}
+\end{figure*}
 
 \section{Force Volume}
 The force network ensemble samples all valid force networks in the spring representation of a packing with equal probability \cite{snoeijer_force_2004,tighe_force_2010,tighe_stress_2011}. 
@@ -121,7 +121,7 @@ Angoricity~\cite{edwards_distribution_2008}, $\alpha$, is derived as:
 %
 First, we measure the volume of force space $V_f$ and explore how it scales with the number of excess contacts. Second, we measure bulk angoricity to confirm our prediction in Eq. (\ref{eqn:angoricity}) and measure the microscopic constant $h_f$.
 
-\begin{figure}[h!]
+\begin{figure}[t!]
 \centering
 \includegraphics[width=\columnwidth, trim=137 240 165 254, clip]{forceVolumeEntropyPaper/volumeInset.pdf}
 \caption{Representative exponential scaling of the force volume, $V_f$, with number of excess contacts, $\Delta Z$, for $N=1024$, $d=3$. The median of the distribution for each $\Delta Z$ is shown as a white circle, surrounded by the full distribution in yellow. The black line shows the exponential fitting form, with exponential base $\gamma$. Inset bottom left, $\gamma$ for each $N$ and $d$. Inset top right, the scale, $C$ of the exponential. Inset data is presented for $d$ = 2 (red), 3 (yellow), 4 (purple), and 5 (green), and $N$ = 256 (circles), 1024 (squares), and 4096 (triangles).}
@@ -156,7 +156,7 @@ P_c=\left[\frac{BN}{2} \ln\left(\frac{\gamma}{h_f}\right)\right]^{-2}.
 
 We use the method of overlapping histograms of local pressures~\cite{bennett_efficient_1976,mcnamara_measurement_2009,bililign_protocol_2019} to measure angoricity and determine the value of $P_c$ and therefore $h_f$. For each system, we measure the local pressure for many random samples of a particle with its $m=50$ nearest neighbors. The choice of $m$ controls the sharpness of the local pressure distribution and so induces a trivial prefactor $A$, shown in the inset to Fig. \ref{angoricityPlot} to be proportional to $dm$. We then compute the angoricity by comparing these local pressure distributions as in Ref~\cite{bililign_protocol_2019}. We fit the angoricity curve to the power law in Eq. (\ref{eqn:angoricityFittingForm}) with prefactor $A$ and an additive offset. As shown in Fig. \ref{angoricityPlot}, all data collapse onto Eq. (\ref{eqn:angoricityFittingForm}).  We extract the crossover pressures, $P_c$, shown in the upper inset of figure \ref{angoricityPlot}, and find that they are insensitive to $N$, but decrease with increasing $d$.
 
-\begin{figure}[h!]
+\begin{figure}[t!]
 \centering
 \includegraphics[width=\columnwidth, trim=143 240 165 253, clip]{forceVolumeEntropyPaper/angoricityInset.pdf}
 \caption{Scaled angoricity, $\alpha P_c/A$, for all $N$ and $d$, collapses onto equation \ref{eqn:angoricity} (black line) when plotted against scaled pressure, $P/P_c$, until high pressure deviations caused by second nearest neighbor interactions. Inset top right, the crossover pressure $P_c$. Inset bottom left, $A/dm$ is approximately 0.7. Colors denote dimension from 2-5 and symbol denotes number of particles as in figure \ref{volumePlot}.
@@ -178,6 +178,13 @@ S &= \ln P + \frac{\delta z}{\delta z_c}. \label{eqn:finalEntropy}
 %
 Thus, the entropy is dependent on two intensive thermodynamic variables, $P$ and $\delta z$, and a constant $\delta z_c$ for each dimension. While $h_f$ is observed to decrease with $N$ and expected to vanish in the thermodynamic limit, we find $\delta z_c$ to be intensive with system size, as shown in Fig.~\ref{lnhgPlot}.
 
+\begin{figure}[t!]
+\centering
+\includegraphics[width=\columnwidth, trim=138 254 176 268, clip]{forceVolumeEntropyPaper/lnhg.pdf}
+\caption{Upper, scaling of $\delta z_c$ with $N$ and $d$. Lower, scaling of $h_f$, with $N$ and $d$, calculated from $P_c$ by inverting equation \ref{pc_equation}.  Colors denote dimension from 2-5 and symbol denotes number of particles as in figure \ref{volumePlot}. }
+\label{lnhgPlot}
+\end{figure}
+
 The first term in Eq. (\ref{eqn:finalEntropy}) describes the entropy increasing from the absolute pressure scale, whereas the second describes the entropy increasing from the number of contacts increasing. Sufficiently close to jamming the first term will dominate as there will be few changes in the contact network even as the pressure changes dramatically. Further from jamming the second term will dominate, reflecting the primacy of changes in the contact network.
 Note that while this equation may be rewritten as a function of pressure using Eq. (\ref{eqn:excess}), for any particular finite packing the integer number of excess contacts is required to calculate the entropy precisely.
 
@@ -188,12 +195,6 @@ This work places angoricity on a firm footing as a thermodynamic quantity that c
 
 \section{Acknowledgments} We thank Bulbul Chakraborty, Karen Daniels, Sean Ridout, and Brian Tighe for useful discussions. This work benefited from access to the University of Oregon high performance computer, Talapas. This work was supported by National Science Foundation (NSF) Career Award DMR-1255370 and the Simons Foundation Grant No. 454939.
 
-\begin{figure}[ht!]
-\centering
-\includegraphics[width=\columnwidth, trim=138 254 176 268, clip]{forceVolumeEntropyPaper/lnhg.pdf}
-\caption{Upper, scaling of $\delta z_c$ with $N$ and $d$. Lower, scaling of $h_f$, with $N$ and $d$, calculated from $P_c$ by inverting equation \ref{pc_equation}.  Colors denote dimension from 2-5 and symbol denotes number of particles as in figure \ref{volumePlot}. }
-\label{lnhgPlot}
-\end{figure}
 %\bibliography{Angoricity}% Produces the bibliography via BibTeX.
 
 %\end{document}

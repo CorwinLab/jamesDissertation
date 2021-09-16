@@ -65,18 +65,21 @@ C_{zp} &= \frac{d}{\sqrt{2^{d}}} \hat{C}_{zp} \label{eqn:meanFieldExcessPressure
 where $\hat{C}_{p\varphi}$ and $\hat{C}_{zp}$ are finite constants in the $d\rightarrow\infty$ limit, which have not yet been explicitly calculated. Note that these relations are presented in a particular choice of units in the literature. We include details of the conversion to our dimensionless units in the Supplemental Material. \textit{A priori}, it is not expected that these predictions will apply in low dimensions, in which the mean-field assumption is not warranted. Even above upper critical dimensions, mean-field theories are not generally expected to correctly compute prefactors, or even the purportedly universal amplitude ratios. Beyond scaling exponents, to our knowledge, the critical cluster shape in percolation and related phenomena \cite{aronovitz_universal_1987,privman_universal_1991} and the Binder cumulant in the Ising model \cite{brizin_finite_1985, parisi_scaling_1996, blote_universality_1997} are the only quantities which are known to be equal to their mean-field values above the upper critical dimension. Even though these prefactors for jamming scaling relationships have been measured and reported \cite{ohern_jamming_2003,sartor_direct_2020}, because they are not expected to be equal to their mean-field values they have not received substantial theoretical attention. An approximate calculation of the related prefactor between the shear modulus and number of excess contacts has been performed in three dimensions \cite{zaccone_approximate_2011}.
 
 %
-\begin{figure}[t]
+\begin{figure}[h!]
 %carefully picked
-\includegraphics[width=\columnwidth, trim=140 241 169 261, clip]{excessContactsScaling/pvsphiSub.pdf}
+%adding some whitespace at the top
+\includegraphics[width=\columnwidth, trim=140 241 169 241, clip]{excessContactsScaling/pvsphiSub.pdf}
+%\includegraphics[width=\columnwidth, trim=140 241 169 261, clip]{excessContactsScaling/pvsphiSub.pdf}
 \caption{Measured pressure scales linearly with scaled excess packing fraction for systems from $d=2$ to $d=10$. Measured values for $\varphi_j$ in our protocol are included in the Supplemental Material. Black lines show fits for $C_{p\varphi}$ using Eq. \ref{eqn:pvsphi}. We exclude from the fit data with $\Delta\varphi/\varphi_j>10^{-3}$, to avoid the effect of larger overlaps causing deviations from this power law. Dotted lines show the extension of fits beyond fitted range. Upper inset shows the measured values of $C_{p\varphi}$ (blue circles) to scale in agreement with the mean-field prediction Eq. \ref{eqn:meanFieldPressurePhi}, shown as a fit to a black line with $\hat{C}_{p\varphi} \approx 1.23$. Moreover, they are in precise agreement with predicted values from Eq. \ref{eqn:seanPrediction} (marked with black $\cross$'s). Lower inset shows measured values of $\hat{C}_{p\varphi}$ calculated from the measured values of $C_{p\varphi}$ and eqn \ref{eqn:meanFieldPressurePhi}. While each prefactor is measured from a single system, the prefactors for a second, identically constructed dataset were calculated to be well within the bounds of the marker size.}
 %https://www.latimes.com/socal/burbank-leader/opinion/tn-blr-me-aword-20181005-story.html
 \label{plot:pvsphi}
 \end{figure}
 %
 %
-\begin{figure}[t]
+\begin{figure}[h!]
 %carefully picked
-\includegraphics[width=\columnwidth, trim=143 244 169 255, clip]{excessContactsScaling/evspSub.pdf}
+\includegraphics[width=\columnwidth, trim=143 244 169 235, clip]{excessContactsScaling/evspSub.pdf}
+%\includegraphics[width=\columnwidth, trim=143 244 169 255, clip]{excessContactsScaling/evspSub.pdf}
 \caption{  Measured excess contacts scales with the square root of pressure for systems from $d=2$ to $d=10$. Black lines show fits for $C_{zp}$ using Eq. \ref{eqn:evsp}. For our fits, we ignore high pressure data as in Fig. \ref{plot:pvsphi}, and additionally exclude data with less than 40 excess contacts to avoid fitting to small number fluctuations. Dotted lines show the extension of our fits beyond fitted range. Lower inset shows the measured values of $C_{zp}$ (blue circles), which scale in agreement with the mean-field prediction Eq. \ref{eqn:meanFieldExcessPressure}, shown as a fit to a black line and with $\hat{C}_{zp} \approx 0.74$.  Upper inset shows measured values of $\hat{C}_{zp}$ calculated from the measured values of $C_{zp}$ and Eq. \ref{eqn:meanFieldExcessPressure}. While each prefactor is measured from a single system, the prefactors for a second, identically constructed dataset were calculated to be well within the bounds of the marker size.}
 \label{plot:evsp}
 \end{figure}

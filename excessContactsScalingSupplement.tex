@@ -11,6 +11,7 @@
 In Table \ref{table:phij} we show our measued values of $\varphi_j$. these values are used in calculating $\Delta \varphi$.
 
 \begin{table}[ht]
+\centering
 \caption{Measured values of $\varphi_j$ in dimensions 2-10.
 \label{table:phij}}
 \begin{tabular}{ |c|c|c|c|c|c|c|c|c|c| } 
@@ -88,7 +89,8 @@ we can also predict the relation between $\delta z$ and $P$:
 where we define $\hat{C}_{zp}=\frac{2\hat{C}_{z\varphi}}{\sqrt{\hat{C}_{p\varphi}}}$.
 
 \begin{figure}[th!]
-\includegraphics[width=300px, trim=143 240 168 250, clip]{excessContactsScaling/evsphi.pdf}
+\includegraphics[width=\columnwidth, trim=143 240 168 230, clip]{excessContactsScaling/evsphi.pdf}
+%\includegraphics[width=\columnwidth, trim=143 240 168 250, clip]{excessContactsScaling/evsphi.pdf}
 
 \caption{Measured excess contacts scales with the square root of excess packing fraction for systems from $d=2$ to $d=10$ (red circles). Black lines show the fits for $C_{zp}$ using eqn \ref{eqn:evsphi}. For our fits, we ignore data at high pressure and low contact number as in figure \ref{plot:evsp}.
 Dotted lines show the extension of our fits beyond the fitted range. Inset shows the measured values of $C_{z\varphi}$ (blue circles), which scale in agreement with the mean field prediction eqn \ref{supeqn:finalphivsz} using measured values of with $\hat{C}_{z\varphi} \approx 0.83$. Additionally, to note consistency we show that our measured values of $C_{z\varphi}$ agree well with values calculated from our measurements of $C_{p\varphi}$ and $C_{zp}$ using eqn \ref{eqn:consistency} (black x's).}
@@ -123,7 +125,7 @@ In figure \ref{plot:mfr} we show that the ratio of force moments does not depend
 %    \caption{Dimensional dependence of force moment ratios}
 %  \label{plot:test}
 %  \begin{subfigure}[t]{0.47\columnwidth}
-  \includegraphics[width=230px, trim=133 242 168 254, clip]{excessContactsScaling/mfr.pdf}
+  \includegraphics[width=\columnwidth, trim=133 242 168 254, clip]{excessContactsScaling/mfr.pdf}
      \caption{Dimensionless moment ratio of first and second moments of $\sigma f$ shows no dimensional dependence}
      \label{plot:mfr}
 \end{figure}
@@ -131,7 +133,7 @@ In figure \ref{plot:mfr} we show that the ratio of force moments does not depend
      %  \end{subfigure}
 %  \hfill %%
 %  \begin{subfigure}[t]{0.47\columnwidth}
-    \includegraphics[width=230px, trim=143 240 163 250, clip]{excessContactsScaling/theoryMFR.pdf}
+    \includegraphics[width=\columnwidth, trim=143 240 163 250, clip]{excessContactsScaling/theoryMFR.pdf}
     \caption{Neither the force distribution $f^\theta e^{-f/f_0}$  (blue) nor the distribution $f^\theta e^{-f^2/f_0^2}$  (red) predicts a strong $\theta$ dependence for the relevant moment ratio}
     \label{plot:theory_mfr}
 %  \end{subfigure}
@@ -205,26 +207,6 @@ and expected to scale as:
 because it is proportional to pressure near the jamming transition \cite{shimada_low-frequency_2019}. In figures \ref{plot:evsprestress} and  \ref{plot:evspcomp},, we examine the collapse of scaled excess contacts with prestress and compare it to the collapse of excess contacts scaled by the mean field prediction with pressure. In figure \ref{plot:evsprestress} we see that the collapse with prestress is not quite perfect - there is a clear upward trend. This stands in contrast to the inset of figure \ref{plot:evspcomp}, which shows $\hat{C}_{zp}$ to be nearly constant above three dimensions.
 
 
-  
-\begin{figure}[h!]
- %   \caption{Comparison of scaled excess contacts with pressure and prestress.}
-% \label{plot:comparison}
-% \begin{subfigure}[t]{0.47\columnwidth}
-    \includegraphics[width=230px, trim=133 242 168 254, clip]{excessContactsScaling/evspcomp.pdf}
-   \caption{Scaled excess contacts scales with the square root of pressure as in figure \ref{plot:evsp}. 
-    However, with excess contacts scaled by the expected mean field prediction, eqn. \ref{eqn:meanFieldExcessPressure},
-    the data collapse onto a single line. The inset confirms the collapse, showing $\hat{C}_{zp}$ to be nearly constant.}
-     \label{plot:evspcomp}
-\end{figure}
-\begin{figure}[h!]
-%  \hfill %%
-%  \begin{subfigure}[t]{0.47\columnwidth}
-    \includegraphics[width=230px, trim=143 240 163 250, clip]{excessContactsScaling/prestressvse.pdf}
-    \caption{Scaled excess contacts scales with the square root of prestress for systems from $d=2$ to $d=10$. Black lines show the fits for $C_{ze}$ using eqn \ref{sup_eqn:evsprestress}. The fits ignore high and low pressure data as in figure \ref{plot:evsp}. 
-    Lower inset shows the measured values of $C_{ze}$ which have a clear upward trend.}
-    \label{plot:evsprestress}
-%  \end{subfigure}
-\end{figure}
 
 In fact, close to jamming so that $r \approx \sigma$ and $Z \approx N d$, our dimensionless pressure $P$ as defined in equation \ref{eqn:stress_tensor_definition}  
 is related to the prestress by
@@ -244,6 +226,27 @@ Thus, our better-fitting form for the $z-P$ relationship amounts to the statemen
 %
  Thus our scaling forms agree with the statement of reference \cite{shimada_low-frequency_2019} in the infinite-$d$ limit, although we see better fit with our form in low dimensions.
 
+ \vspace{0.2cm}
+  
+\begin{figure}[h!]
+ %   \caption{Comparison of scaled excess contacts with pressure and prestress.}
+% \label{plot:comparison}
+% \begin{subfigure}[t]{0.47\columnwidth}
+    \includegraphics[width=\columnwidth, trim=133 242 168 254, clip]{excessContactsScaling/evspcomp.pdf}
+   \caption{Scaled excess contacts scales with the square root of pressure as in figure \ref{plot:evsp}. 
+    However, with excess contacts scaled by the expected mean field prediction, eqn. \ref{eqn:meanFieldExcessPressure},
+    the data collapse onto a single line. The inset confirms the collapse, showing $\hat{C}_{zp}$ to be nearly constant.}
+     \label{plot:evspcomp}
+\end{figure}
+\begin{figure}[h!]
+%  \hfill %%
+%  \begin{subfigure}[t]{0.47\columnwidth}
+    \includegraphics[width=\columnwidth, trim=143 240 163 250, clip]{excessContactsScaling/prestressvse.pdf}
+    \caption{Scaled excess contacts scales with the square root of prestress for systems from $d=2$ to $d=10$. Black lines show the fits for $C_{ze}$ using eqn \ref{sup_eqn:evsprestress}. The fits ignore high and low pressure data as in figure \ref{plot:evsp}. 
+    Lower inset shows the measured values of $C_{ze}$ which have a clear upward trend.}
+    \label{plot:evsprestress}
+%  \end{subfigure}
+\end{figure}
 
 %\bibliography{scaling}% Produces the bibliography via BibTeX.
 
