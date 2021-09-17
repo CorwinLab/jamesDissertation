@@ -6,3 +6,4 @@ dissertation.blg
 *.toc
 *.aux
 *.bbl
+*.synctex(busy)
